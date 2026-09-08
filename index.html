@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maafyahseng🙏🏻</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Caveat:wght@400;700&family=Handlee&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#eef5ff;
+    height:100vh;
+}
+
+/* ================= LOADING ================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#dbe9ff,#fefcff);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    z-index:9999;
+
+    overflow:hidden;
+
+    transition:1s;
+}
+
+.loader.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+.loader::before,
+.loader::after{
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.5;
+}
+
+.loader::before{
+    width:280px;
+    height:280px;
+
+    background:#bdd7ff;
+
+    top:-80px;
+    left:-80px;
+
+    animation:floatGlow 6s ease-in-out infinite;
+}
+
+.loader::after{
+    width:240px;
+    height:240px;
+
+    background:#ffdceb;
+
+    bottom:-60px;
+    right:-60px;
+
+    animation:floatGlow 7s ease-in-out infinite reverse;
+}
+
+@keyframes floatGlow{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+}
+
+.loader-heart{
+    position:relative;
+
+    width:90px;
+    height:90px;
+
+    transform:rotate(-45deg);
+
+    animation:pulse 1.4s ease-in-out infinite;
+
+    background:#8eb8ff;
+}
+
+.loader-heart::before,
+.loader-heart::after{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    background:#8eb8ff;
+
+    border-radius:50%;
+}
+
+.loader-heart::before{
+    top:-45px;
+    left:0;
+}
+
+.loader-heart::after{
+    left:45px;
+    top:0;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(-45deg) scale(1.08);
+    }
+
+}
+
+.loader-text{
+    margin-top:45px;
+
+    text-align:center;
+}
+
+.loader-text h2{
+    color:#6d8fcb;
+
+    font-size:34px;
+
+    font-family:'Caveat',cursive;
+
+    margin-bottom:8px;
+}
+
+.loader-text p{
+    color:#9aaed6;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+}
+
+/* ================= SPARKLE ================= */
+
+.sparkle-item{
+    position:absolute;
+
+    font-size:18px;
+
+    opacity:.35;
+
+    pointer-events:none;
+
+    animation:sparkleFloat linear infinite;
+}
+
+@keyframes sparkleFloat{
+
+    0%{
+        transform:
+        translateY(110vh)
+        translateX(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.4;
+    }
+
+    50%{
+        transform:
+        translateY(40vh)
+        translateX(15px)
+        rotate(180deg);
+    }
+
+    100%{
+        transform:
+        translateY(-120vh)
+        translateX(-15px)
+        rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+}
+
+.blur1,
+.blur2,
+.blur3{
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.35;
+}
+
+.blur1{
+    width:300px;
+    height:300px;
+
+    background:#d7e8ff;
+
+    top:-100px;
+    left:-100px;
+}
+
+.blur2{
+    width:250px;
+    height:250px;
+
+    background:#ffe3ef;
+
+    bottom:-80px;
+    right:-80px;
+}
+
+.blur3{
+    width:220px;
+    height:220px;
+
+    background:#bfd8ff;
+
+    top:40%;
+    left:40%;
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+.music-btn{
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:2px solid #dce9ff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:
+    0 6px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.08);
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    width:420px;
+    max-width:100%;
+    max-height:90vh;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    border:2px solid #dce9ff;
+
+    border-radius:35px;
+
+    padding:28px;
+
+    text-align:center;
+
+    position:relative;
+
+    box-shadow:
+    0 15px 35px rgba(142,184,255,.15);
+
+    animation:show .8s ease;
+}
+
+.card::-webkit-scrollbar{
+    width:0;
+}
+
+@keyframes show{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    opacity:.6;
+}
+
+.c1{
+    background:#ffd6e7;
+    top:20px;
+    left:30px;
+}
+
+.c2{
+    background:#d6e5ff;
+    top:90px;
+    right:35px;
+}
+
+.c3{
+    background:#b7d1ff;
+    bottom:50px;
+    left:45px;
+}
+
+.c4{
+    background:#ffe8b6;
+    bottom:100px;
+    right:35px;
+}
+
+/* ================= IMAGE ================= */
+
+.cat-box{
+    width:180px;
+    height:180px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    margin:auto;
+
+    border:3px solid #dce9ff;
+
+    box-shadow:
+    0 10px 25px rgba(125,162,220,.15);
+}
+
+.cat-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+    font-family:'Special Elite',cursive;
+
+    color:#5f7fb6;
+
+    font-size:38px;
+
+    line-height:1.4;
+
+    margin-top:22px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+    margin-top:28px;
+}
+
+button{
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.yes-btn{
+    background:#8eb8ff;
+
+    color:white;
+
+    box-shadow:
+    0 6px 15px rgba(142,184,255,.35);
+}
+
+.yes-btn:hover{
+    transform:translateY(-3px);
+}
+
+.no-btn{
+    background:white;
+
+    border:2px solid #bfd5ff;
+
+    color:#7994c8;
+
+    position:relative;
+}
+
+/* ================= MESSAGE ================= */
+
+.text-box{
+    margin-top:24px;
+
+    background:#f5f9ff;
+
+    border:2px solid #dce9ff;
+
+    padding:22px;
+
+    border-radius:24px;
+
+    color:#7185a7;
+
+    font-family:'Handlee',cursive;
+
+    font-size:20px;
+
+    line-height:2;
+
+    box-shadow:
+    inset 0 0 15px rgba(141,184,255,.08);
+}
+
+.love-text{
+    font-family:'Caveat',cursive;
+
+    font-size:34px;
+
+    color:#5f84cb;
+}
+
+/* ================= MEMORY ================= */
+
+.memory-slider{
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    margin-top:25px;
+}
+
+.memory-track{
+    display:flex;
+
+    gap:14px;
+
+    width:max-content;
+
+    animation:slideMemory 18s linear infinite;
+}
+
+.memory-track img{
+    width:160px;
+    height:160px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    border:3px solid #dce9ff;
+
+    box-shadow:
+    0 8px 18px rgba(141,184,255,.15);
+}
+
+@keyframes slideMemory{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* ================= BIG PHOTO ================= */
+
+.big-photo-page{
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #fef7fb,
+    #eef5ff
+    );
+}
+
+.big-love-photo{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.big-love-photo img{
+    width:100%;
+    max-width:360px;
+
+    border-radius:35px;
+
+    border:5px solid white;
+
+    object-fit:cover;
+
+    box-shadow:
+    0 15px 35px rgba(122,167,255,.25);
+
+    animation:photoFloat 4s ease-in-out infinite;
+}
+
+@keyframes photoFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+/* ================= HEART EFFECT ================= */
+
+.heart{
+    position:fixed;
+
+    font-size:24px;
+
+    pointer-events:none;
+
+    animation:fly 4s linear forwards;
+}
+
+@keyframes fly{
+
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+.final{
+    display:none;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .card{
+        padding:22px 18px;
+    }
+
+    .title{
+        font-size:30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="sorry.mp3" type="audio/mp3">
+</audio>
+
+<!-- MUSIC BUTTON -->
+
+<div class="music-btn" onclick="toggleMusic()">
+🎵
+</div>
+
+<!-- LOADING -->
+
+<div class="loader" id="loader">
+
+    <div class="sparkle-item" style="left:10%;animation-duration:9s;">✨</div>
+    <div class="sparkle-item" style="left:25%;animation-duration:11s;">💙</div>
+    <div class="sparkle-item" style="left:40%;animation-duration:10s;">🩵</div>
+    <div class="sparkle-item" style="left:60%;animation-duration:12s;">✨</div>
+    <div class="sparkle-item" style="left:75%;animation-duration:9s;">💙</div>
+    <div class="sparkle-item" style="left:88%;animation-duration:13s;">🩵</div>
+
+    <div class="loader-heart"></div>
+
+    <div class="loader-text">
+
+        <h2>just for you 💙</h2>
+
+        <p>
+            preparing something beautiful...
+        </p>
+
+    </div>
+
+</div>
+
+<!-- BACKGROUND -->
+
+<div class="bg">
+
+    <div class="blur1"></div>
+    <div class="blur2"></div>
+    <div class="blur3"></div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<!-- PAGE 1 -->
+
+<div class="card" id="page1">
+
+    <div class="sparkle-item" style="left:8%;animation-duration:12s;">✨</div>
+    <div class="sparkle-item" style="left:22%;animation-duration:14s;">💙</div>
+    <div class="sparkle-item" style="left:38%;animation-duration:13s;">🩵</div>
+    <div class="sparkle-item" style="left:55%;animation-duration:15s;">✨</div>
+    <div class="sparkle-item" style="left:72%;animation-duration:11s;">💙</div>
+    <div class="sparkle-item" style="left:88%;animation-duration:16s;">🩵</div>
+
+    <div class="confetti c1"></div>
+    <div class="confetti c2"></div>
+    <div class="confetti c3"></div>
+    <div class="confetti c4"></div>
+
+    <div class="cat-box">
+        <img src="stiker1.png">
+    </div>
+
+    <div class="title">
+        will you forgive me?
+    </div>
+
+    <div class="btn-group">
+
+        <button class="no-btn" id="noBtn">
+            no
+        </button>
+
+        <button class="yes-btn" onclick="nextPage()">
+            yes 
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="card final" id="page2">
+
+    <div class="sparkle-item" style="left:10%;animation-duration:13s;">✨</div>
+    <div class="sparkle-item" style="left:28%;animation-duration:15s;">💙</div>
+    <div class="sparkle-item" style="left:44%;animation-duration:12s;">🩵</div>
+    <div class="sparkle-item" style="left:63%;animation-duration:16s;">✨</div>
+    <div class="sparkle-item" style="left:80%;animation-duration:14s;">💙</div>
+
+    <div class="confetti c1"></div>
+    <div class="confetti c2"></div>
+    <div class="confetti c3"></div>
+    <div class="confetti c4"></div>
+
+    <div class="cat-box">
+        <img src="stiker2.jpg">
+    </div>
+
+    <div class="title">
+        i knew you'd forgive me 
+    </div>
+
+    <div class="text-box">
+
+        Seng kita minta maaf dari lubuk hati yg paling dalam karna so beking seng bamarah, itu lagi karna kt pe kebodohan  cuma karna kt dorang ada kasih dekat deng tu manusia itu smpe seng so marajuu smo 1 minggu smpe kita so nda tau mo buju bgmna 😔
+
+        <br><br>
+
+        mr asal seng tau eh kita deng dia nynda jdi deng nda pernahh jadi, jdi seng jngn ada pikirn klo kt so deng dia 😠
+
+        <br><br>
+
+        ⁠kita ini cuma tpe syng punya alias NICKY SYNGKU CINTA punya tu MAYSI KAAT
+
+        <br><br>
+
+        deng kita lgi nda ada perasaan sdikitpun mo suka pa dia seng, 
+
+krna kita pe prinsip kalo satu yh satu jdi krna kt so deng seng jdi nda akan mo deng laeng 🥹
+
+        <br><br>
+
+       kecuali seng memng so nimau deng kita 😩😔 
+
+jadi minta tolong seng kase maaf ne kt deng nda ush bahas2 lagi dia 🙏🏻🙏🏻😩
+
+        <br><br>
+
+        <span class="love-text">
+            I Love U syngku Cinta 😍🥰❤️
+        </span>
+
+    </div>
+
+    <div class="btn-group">
+
+        <button class="yes-btn" onclick="nextMemoryPage()">
+            our memories 
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="card final" id="page3">
+
+    <div class="sparkle-item" style="left:7%;animation-duration:11s;">✨</div>
+    <div class="sparkle-item" style="left:24%;animation-duration:15s;">💙</div>
+    <div class="sparkle-item" style="left:41%;animation-duration:13s;">🩵</div>
+    <div class="sparkle-item" style="left:59%;animation-duration:16s;">✨</div>
+    <div class="sparkle-item" style="left:77%;animation-duration:12s;">💙</div>
+    <div class="sparkle-item" style="left:91%;animation-duration:18s;">🩵</div>
+
+    <div class="confetti c1"></div>
+    <div class="confetti c2"></div>
+    <div class="confetti c3"></div>
+    <div class="confetti c4"></div>
+
+    <div class="title">
+        our memories 💙
+    </div>
+
+    <div class="memory-slider">
+
+        <div class="memory-track">
+
+            <img src="foto1.jpg">
+            <img src="foto2.jpg">
+            <img src="foto3.jpg">
+            <img src="foto4.jpg">
+            <img src="foto5.jpg">
+
+            <img src="foto1.jpg">
+            <img src="foto2.jpg">
+            <img src="foto3.jpg">
+            <img src="foto4.jpg">
+            <img src="foto5.jpg">
+
+        </div>
+
+    </div>
+
+    <div style="margin-top:25px;color:#7a8ead;">
+
+        every moment with you
+        is still my favorite memory ✨
+
+    </div>
+
+    <div class="btn-group">
+
+        <button class="yes-btn" onclick="nextLovePage()">
+            one more thing 
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="card final big-photo-page" id="page4">
+
+    <div class="sparkle-item" style="left:9%;animation-duration:12s;">✨</div>
+    <div class="sparkle-item" style="left:26%;animation-duration:14s;">💙</div>
+    <div class="sparkle-item" style="left:48%;animation-duration:15s;">🩵</div>
+    <div class="sparkle-item" style="left:68%;animation-duration:13s;">✨</div>
+    <div class="sparkle-item" style="left:86%;animation-duration:17s;">💙</div>
+
+    <div class="big-love-photo">
+
+        <img src="stiker3.png">
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+/* LOADING */
+
+window.onload = ()=>{
+
+    setTimeout(()=>{
+
+        document.getElementById("loader")
+        .classList.add("hidden");
+
+        autoPlayMusic();
+
+    },2800);
+
+}
+
+/* NO BUTTON */
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+    const x=Math.random()*220-110;
+    const y=Math.random()*220-110;
+
+    noBtn.style.transform=
+    `translate(${x}px,${y}px)`;
+
+});
+
+/* PAGE */
+
+function nextPage(){
+
+    document.getElementById("page1")
+    .style.display="none";
+
+    document.getElementById("page2")
+    .style.display="block";
+
+    loveEffect();
+
+}
+
+function nextMemoryPage(){
+
+    document.getElementById("page2")
+    .style.display="none";
+
+    document.getElementById("page3")
+    .style.display="block";
+
+}
+
+function nextLovePage(){
+
+    document.getElementById("page3")
+    .style.display="none";
+
+    document.getElementById("page4")
+    .style.display="flex";
+
+    loveEffect();
+
+}
+
+/* MUSIC */
+
+const music=document.getElementById("bgMusic");
+
+let playing=false;
+
+function toggleMusic(){
+
+    if(!playing){
+
+        music.play();
+
+        playing=true;
+
+    }else{
+
+        music.pause();
+
+        playing=false;
+
+    }
+
+}
+
+/* AUTOPLAY */
+
+function autoPlayMusic(){
+
+    const playPromise = music.play();
+
+    if(playPromise !== undefined){
+
+        playPromise
+        .then(()=>{
+
+            playing=true;
+
+            music.volume=.4;
+
+        })
+        .catch(()=>{
+
+            document.body.addEventListener(
+                "click",
+                firstPlayMusic,
+                { once:true }
+            );
+
+        });
+
+    }
+
+}
+
+function firstPlayMusic(){
+
+    music.play();
+
+    playing=true;
+
+}
+
+</script>
+
+</body>
+</html>
